@@ -1,9 +1,12 @@
 package com.example.finalamg
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.example.finalamg.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -16,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         var textonombre= ""
         var textocontrasena= ""
 
@@ -29,7 +33,15 @@ class MainActivity : AppCompatActivity() {
                     binding.nombre.error=null
                 }
 
-                binding.siguiente.isEnabled = comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)
+                //binding.registrarse.isEnabled = comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)
+                if (comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)){
+                    binding.registrarse.visibility= View.VISIBLE
+                    binding.iniciosesion.visibility=View.VISIBLE
+                }else{
+                    binding.registrarse.visibility= View.INVISIBLE
+                    binding.iniciosesion.visibility=View.INVISIBLE
+                }
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -48,7 +60,14 @@ class MainActivity : AppCompatActivity() {
                 }else{
                     binding.contrasena.error=null
                 }
-                binding.siguiente.isEnabled = comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)
+                //binding.registrarse.isEnabled = comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)
+                if (comprobarnombre(textonombre) && comprobarcontrasena(textocontrasena)){
+                    binding.registrarse.visibility= View.VISIBLE
+                    binding.iniciosesion.visibility=View.VISIBLE
+                }else{
+                    binding.registrarse.visibility= View.INVISIBLE
+                    binding.iniciosesion.visibility=View.INVISIBLE
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -58,12 +77,41 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        binding.siguiente.setOnClickListener {
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(textonombre,textocontrasena)
+        binding.registrarse.setOnClickListener {
+            FirebaseAuth.getInstance().createUserWithEmailAndPassword(textonombre,textocontrasena).addOnCompleteListener {
+                if (it.isSuccessful){
+                    goHome(it.result?.user?.email ?: "")
+                }else{
+                    showAlert()
+                }
+            }
+        }
+        binding.iniciosesion.setOnClickListener {
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(textonombre,textocontrasena).addOnCompleteListener {
+                if (it.isSuccessful){
+                    goHome(it.result?.user?.email ?: "")
+                }else{
+                    showAlert()
+                }
+            }
         }
 
 
 
+    }
+    fun showAlert(){
+        val builder= AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setTitle("Se ha producido un error autenticando al usuario")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog: AlertDialog=builder.create()
+        dialog.show()
+    }
+    fun goHome(email: String){
+        val homeintent = Intent (this, HomeActivity::class.java).apply {
+            putExtra("email",email)
+        }
+        startActivity(homeintent)
     }
 
     fun comprobarnombre(nombre :String):Boolean{

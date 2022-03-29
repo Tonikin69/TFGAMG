@@ -65,18 +65,36 @@
 
 
     <Button
-        android:id="@+id/siguiente"
+        android:id="@+id/registrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="Siguiente"
+        android:enabled="true"
+        android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contrasena"
         app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.1"
         android:backgroundTint="@color/miamarillo"
         android:textColor="@color/black"
+        android:visibility="invisible"
+        />
+    <Button
+        android:id="@+id/iniciosesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:text="Iniciar sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contrasena"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.9"
+        android:backgroundTint="@color/miamarillo"
+        android:textColor="@color/black"
+        android:visibility="invisible"
         />
 
 
