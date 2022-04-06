@@ -6,9 +6,16 @@ import androidx.activity.OnBackPressedCallback
 import com.example.finalamg.databinding.ActivityHomeBinding
 import com.example.finalamg.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class HomeActivity : AppCompatActivity() {
+
+    private val db = FirebaseFirestore.getInstance()
     private lateinit var binding : ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -20,13 +27,22 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun setup(email: String){
+        db.collection("users").document(email).get().addOnSuccessListener {
+            binding.nombreEt.setText(it.get("nombre") as String?)
+        }
         title="Inicio"
         binding.emailTx.text=email
-
 
         binding.cierresesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }
+
+        binding.cambiarnombre.setOnClickListener {
+            db.collection("users").document(email).set(
+                hashMapOf("nombre" to binding.nombreEt.text.toString())
+            )
+        }
+
     }
 }
