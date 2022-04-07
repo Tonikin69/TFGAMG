@@ -1,5 +1,6 @@
 package com.example.finalamg
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
@@ -30,8 +31,8 @@ class HomeActivity : AppCompatActivity() {
         db.collection("users").document(email).get().addOnSuccessListener {
             binding.nombreEt.setText(it.get("nombre") as String?)
         }
+
         title="Inicio"
-        binding.emailTx.text=email
 
         binding.cierresesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -43,6 +44,15 @@ class HomeActivity : AppCompatActivity() {
                 hashMapOf("nombre" to binding.nombreEt.text.toString())
             )
         }
+        binding.jugar.setOnClickListener {
+            val homeintent = Intent (this, JuegoActivity::class.java)
+            startActivity(homeintent)
+        }
 
+    }
+    fun goHome(){
+        val homeintent = Intent (this, HomeActivity::class.java).apply {
+        }
+        startActivity(homeintent)
     }
 }

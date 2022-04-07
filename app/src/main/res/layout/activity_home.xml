@@ -11,24 +11,12 @@
         android:id="@+id/nombreEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:typeface="serif"/>
-
-    <Button
-        android:id="@+id/cambiarnombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cambiar nombre"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/emailTx"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"/>
-
+        app:layout_constraintVertical_bias="0.7"/>
     <TextView
         android:id="@+id/monedasTx"
         android:layout_width="wrap_content"
@@ -36,19 +24,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintHorizontal_bias="0.7"
+        android:layout_marginTop="10dp"
+        android:text="a"/>
 
-    <TextView
-        android:id="@+id/emailTx"
+    <Button
+        android:id="@+id/cambiarnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Cambiar nombre"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/cierresesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Prueba"
-        app:layout_constraintVertical_bias="0.9"/>
+        app:layout_constraintVertical_bias="0.95" />
+
 
     <Button
         android:id="@+id/cierresesion"
@@ -61,7 +52,54 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTx"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <Button
+        android:id="@+id/jugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jugar"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Podium"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/cambiarnombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/soldado2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/moneda"
+        app:layout_constraintBottom_toBottomOf="@+id/monedasTx"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/monedasTx"
+        app:layout_constraintTop_toTopOf="@+id/monedasTx" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
