@@ -45,7 +45,9 @@ class HomeActivity : AppCompatActivity() {
             )
         }
         binding.jugar.setOnClickListener {
-            val homeintent = Intent (this, JuegoActivity::class.java)
+            val homeintent = Intent (this, JuegoActivity::class.java).apply {
+                putExtra("email",email)
+            }
             startActivity(homeintent)
         }
 
