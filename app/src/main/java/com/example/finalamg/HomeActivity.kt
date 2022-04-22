@@ -3,6 +3,7 @@ package com.example.finalamg
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.activity.OnBackPressedCallback
 import com.example.finalamg.databinding.ActivityHomeBinding
 import com.example.finalamg.databinding.ActivityMainBinding
@@ -28,21 +29,23 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun setup(email: String){
-        db.collection("users").document(email).get().addOnSuccessListener {
-            binding.nombreEt.setText(it.get("nombre") as String?)
-        }
+        val handlerr = Handler()
+        handlerr.postDelayed({
+            db.collection("users").document(email).get().addOnSuccessListener {
+                binding.monedasTx.setText(it.get("monedas") as String?)
+            }
+        }, 1000)
 
         title="Inicio"
 
         binding.cierresesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            onBackPressed()
+            val homeintent = Intent (this, MainActivity::class.java)
+            startActivity(homeintent)
         }
 
         binding.cambiarnombre.setOnClickListener {
-            db.collection("users").document(email).set(
-                hashMapOf("nombre" to binding.nombreEt.text.toString())
-            )
+            //futuratienda
         }
         binding.jugar.setOnClickListener {
             val homeintent = Intent (this, JuegoActivity::class.java).apply {

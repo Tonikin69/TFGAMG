@@ -3,14 +3,17 @@ package com.example.finalamg
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.finalamg.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+    private val db = FirebaseFirestore.getInstance()
     private lateinit var binding : ActivityMainBinding
     //53:9C:6A:F9:9D:D7:F1:5A:FE:4B:60:45:7E:8A:D1:10:C5:09:C8:B9
 
@@ -79,6 +82,9 @@ class MainActivity : AppCompatActivity() {
         binding.registrarse.setOnClickListener {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(textonombre,textocontrasena).addOnCompleteListener {
                 if (it.isSuccessful){
+                        db.collection("users").document(textonombre).set(
+                            hashMapOf("monedas" to "0")
+                        )
                     goHome(it.result?.user?.email ?: "")
                 }else{
                     showAlert()

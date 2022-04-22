@@ -8,6 +8,7 @@
     android:background="@color/migris">
 
     <EditText
+        android:text="aquivaelcorreosinel@"
         android:id="@+id/nombreEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,13 +27,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
         android:layout_marginTop="10dp"
-        android:text="a"/>
+        android:text=""/>
 
     <Button
         android:id="@+id/cambiarnombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cambiar nombre"
+        android:text="tienda"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/cierresesion"
         app:layout_constraintEnd_toEndOf="parent"

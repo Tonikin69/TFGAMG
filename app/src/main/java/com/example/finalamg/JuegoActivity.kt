@@ -8,17 +8,21 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalamg.databinding.ActivityFinjuegoBinding
 import com.example.finalamg.databinding.ActivityJuegoBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 
 class JuegoActivity : AppCompatActivity() {
+    private val db = FirebaseFirestore.getInstance()
      var ancho=0
      var alto=0
     var fin = false
     var contador=0
+    var suma="0"
     private lateinit var binding : ActivityJuegoBinding
     private lateinit var bindingdos : ActivityFinjuegoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,20 +90,41 @@ class JuegoActivity : AppCompatActivity() {
         var eliminados = dialogo.findViewById<TextView>(R.id.eliminados)
         var regresarmenu = dialogo.findViewById<Button>(R.id.regresarmenu)
         var regresarjuego = dialogo.findViewById<Button>(R.id.regresarjuego)
+        eliminados.setText("Has matado : "+contador)
+        dialogo.show()
         regresarjuego.setOnClickListener {
+            val handlerr = Handler()
             val homeintent = Intent (this, JuegoActivity::class.java).apply {
                 putExtra("email",email)
             }
-            startActivity(homeintent)
+            db.collection("users").document(email).get().addOnSuccessListener {
+                suma=((it.get("monedas") as String?).toString())
+                contador+=suma.toInt()
+            }
+            handlerr.postDelayed({
+                db.collection("users").document(email).set(
+                    hashMapOf("monedas" to contador.toString())
+                )
+                startActivity(homeintent)
+            }, 2000)
+
         }
         regresarmenu.setOnClickListener {
+            val handlerr = Handler()
             val homeintentdos = Intent (this, HomeActivity::class.java).apply {
                 putExtra("email",email)
             }
-            startActivity(homeintentdos)
+            db.collection("users").document(email).get().addOnSuccessListener {
+                suma=((it.get("monedas") as String?).toString())
+                contador+=suma.toInt()
+            }
+            handlerr.postDelayed({
+                db.collection("users").document(email).set(
+                    hashMapOf("monedas" to contador.toString())
+                )
+                startActivity(homeintentdos)
+            }, 2000)
         }
-        eliminados.setText("Has matado : "+contador)
-        dialogo.show()
 
     }
 
