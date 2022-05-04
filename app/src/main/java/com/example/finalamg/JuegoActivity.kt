@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.finalamg.databinding.ActivityFinjuegoBinding
 import com.example.finalamg.databinding.ActivityJuegoBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import java.util.*
 
 
@@ -91,6 +92,7 @@ class JuegoActivity : AppCompatActivity() {
         var regresarmenu = dialogo.findViewById<Button>(R.id.regresarmenu)
         var regresarjuego = dialogo.findViewById<Button>(R.id.regresarjuego)
         eliminados.setText("Has matado : "+contador)
+        var muertos = contador
         dialogo.show()
         regresarjuego.setOnClickListener {
             val handlerr = Handler()
@@ -122,6 +124,38 @@ class JuegoActivity : AppCompatActivity() {
                 db.collection("users").document(email).set(
                     hashMapOf("monedas" to contador.toString())
                 )
+                db.collection("record").document(email).get().addOnSuccessListener {
+                    var resultadostring=((it.get("personalrecord") as String?).toString())
+                    var resultado = resultadostring.toInt()
+                    if (muertos>resultado){
+                        db.collection("record").document(email).set(
+                            hashMapOf("personalrecord" to muertos.toString())
+                        )
+                    }
+                }
+
+                db.collection("record").get().addOnSuccessListener {
+                    var lista: List<QueryDocumentSnapshot> = it.toList()
+                    var listastring=lista.toString()
+                    var listilla = listastring.split(",")
+                    var gmails = listilla.filter { it.contains("doc=Document{key=record/") }
+                    var gmailss=""
+                    for (i in gmails){
+                        gmailss+=i.substring(25)+" "
+                    }
+                    //value=ObjectValue{internalValue={personalrecord:
+                    var puntos = listilla.filter { it.contains("value=ObjectValue{internalValue={personalrecord:") }
+                    var puntoss=""
+                    for (i in puntos){
+                        puntoss+=i.substring(49)+" "
+                    }
+
+                    puntoss=puntoss.replace("}","")
+                    puntoss=puntoss.replace("]","")
+                    println(gmailss+"``````````````````````")
+                    println(puntoss+"``````````````````````")
+
+                }
                 startActivity(homeintentdos)
             }, 2000)
         }
