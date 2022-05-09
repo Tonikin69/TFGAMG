@@ -85,6 +85,9 @@ class MainActivity : AppCompatActivity() {
                         db.collection("users").document(textonombre).set(
                             hashMapOf("monedas" to "0")
                         )
+                    db.collection("record").document(textonombre).set(
+                        hashMapOf("personalrecord" to "0")
+                    )
                     goHome(it.result?.user?.email ?: "")
                 }else{
                     showAlert()

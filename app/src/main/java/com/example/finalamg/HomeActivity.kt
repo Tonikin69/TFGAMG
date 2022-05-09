@@ -53,6 +53,10 @@ class HomeActivity : AppCompatActivity() {
             }
             startActivity(homeintent)
         }
+        binding.podium.setOnClickListener {
+            val homeintent = Intent (this, PodiumActivity::class.java)
+            startActivity(homeintent)
+        }
 
     }
     fun goHome(){

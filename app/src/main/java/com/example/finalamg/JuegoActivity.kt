@@ -107,6 +107,38 @@ class JuegoActivity : AppCompatActivity() {
                 db.collection("users").document(email).set(
                     hashMapOf("monedas" to contador.toString())
                 )
+                db.collection("record").document(email).get().addOnSuccessListener {
+                    var resultadostring=((it.get("personalrecord") as String?).toString())
+                    var resultado = resultadostring.toInt()
+                    if (muertos>resultado){
+                        db.collection("record").document(email).set(
+                            hashMapOf("personalrecord" to muertos.toString())
+                        )
+                    }
+                }
+
+                db.collection("record").get().addOnSuccessListener {
+                    var lista: List<QueryDocumentSnapshot> = it.toList()
+                    var listastring=lista.toString()
+                    var listilla = listastring.split(",")
+                    var gmails = listilla.filter { it.contains("doc=Document{key=record/") }
+                    var gmailss=""
+                    for (i in gmails){
+                        gmailss+=i.substring(25)+" "
+                    }
+                    //value=ObjectValue{internalValue={personalrecord:
+                    var puntos = listilla.filter { it.contains("value=ObjectValue{internalValue={personalrecord:") }
+                    var puntoss=""
+                    for (i in puntos){
+                        puntoss+=i.substring(49)+" "
+                    }
+
+                    puntoss=puntoss.replace("}","")
+                    puntoss=puntoss.replace("]","")
+                    println(gmailss+"``````````````````````")
+                    println(puntoss+"``````````````````````")
+
+                }
                 startActivity(homeintent)
             }, 2000)
 
