@@ -26,6 +26,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -54,6 +55,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -81,6 +83,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -108,6 +111,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -135,6 +139,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -162,6 +167,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -189,6 +195,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -216,6 +223,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -243,6 +251,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
@@ -270,6 +279,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:id="@+id/pos10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nombre y puntos"
