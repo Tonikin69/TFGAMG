@@ -55,6 +55,15 @@ class PodiumActivity : AppCompatActivity() {
 
             println(listafinal+"ñ")
 
+            binding.pos1.text=listafinal[0]
+            binding.pos2.text=listafinal[1]
+            binding.pos3.text=listafinal[2]
+            binding.pos4.text=listafinal[3]
+
+
+
+
+
 
 
 

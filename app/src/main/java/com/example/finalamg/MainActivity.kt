@@ -120,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             putExtra("email",email)
         }
         startActivity(homeintent)
+        finish()
     }
 
     fun comprobarnombre(nombre :String):Boolean{
