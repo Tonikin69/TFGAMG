@@ -49,16 +49,43 @@ class PodiumActivity : AppCompatActivity() {
 
 
 
+            var listastringpuntos=mutableListOf<String>()
+
+            for (i in 0..listapuntuación.size-2){
+                listastringpuntos+=listapuntuación[i]
+            }
 
 
 
 
-            println(listafinal+"ñññ")
+            var listaintpuntos = mutableListOf<Int>()
 
-            binding.pos1.text=listafinal[0]
-            binding.pos2.text=listafinal[1]
-            binding.pos3.text=listafinal[2]
-            binding.pos4.text=listafinal[3]
+            for (i in 0..listapuntuación.size-2){
+                listaintpuntos+=listapuntuación[i].toInt()
+            }
+
+            var listaintpuntosordenada=listaintpuntos.sorted().reversed()
+
+            var listastringpuntosordenada=mutableListOf<String>()
+
+            for (i in 0..listaintpuntosordenada.size-1){
+                listastringpuntosordenada+=listaintpuntosordenada[i].toString()
+            }
+
+            var nombresrepetios=" "
+
+
+            var listafinalporfin = mutableListOf<String>()
+            for (i in 0..listastringpuntosordenada.size-1){
+                for (j in 0..listastringpuntos.size-1){
+                    if (listastringpuntosordenada[i].equals(listastringpuntos[j]) and !nombresrepetios.contains(listanombres[j])){
+                        println(listastringpuntosordenada[i]+"  "+listastringpuntos[j]+"  "+listanombres[j]+"          xoc")
+                        listafinalporfin+=listastringpuntos[j]+"  "+listanombres[j]
+                        nombresrepetios+=listanombres[j]
+                        break
+                    }
+                }
+            }
 
 
 
@@ -69,6 +96,45 @@ class PodiumActivity : AppCompatActivity() {
 
 
 
+
+
+
+
+            println(listafinal+"xxx")
+            println(listanombres+"xxx")
+            println(listapuntuación+"xxx")
+            println(listastringpuntos+"xjx")
+            println(listastringpuntosordenada+"xjx")
+            println(listafinalporfin+"xpx")
+
+
+
+
+            binding.pos1.text=listafinalporfin[0]
+            binding.pos2.text=listafinalporfin[1]
+            binding.pos3.text=listafinalporfin[2]
+            binding.pos4.text=listafinalporfin[3]
+            binding.pos5.text=listafinalporfin[4]
+            binding.pos6.text=listafinalporfin[5]
+            binding.pos7.text=listafinalporfin[6]
+            binding.pos8.text=listafinalporfin[7]
+            binding.pos9.text=listafinalporfin[8]
+            binding.pos10.text=listafinalporfin[9]
+
+
+
+
+
+
+
+
+
+
+
+        }
+        binding.regreso.setOnClickListener {
+            onBackPressed()
+            finish()
         }
     }
 }
