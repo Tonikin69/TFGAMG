@@ -60,6 +60,7 @@ class TiendaActivity : AppCompatActivity() {
         binding.volver.setOnClickListener {
             val homeintent = Intent (this, HomeActivity::class.java).apply {
                 putExtra("email",email)
+                putExtra("seleccionado",envio)
             }
             startActivity(homeintent)
             finish()
@@ -487,28 +488,6 @@ class TiendaActivity : AppCompatActivity() {
         db.collection("users").document(email!!).get().addOnSuccessListener {
             binding.monedastienda.setText(it.get("monedas") as String?)
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

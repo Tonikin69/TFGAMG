@@ -25,10 +25,11 @@ class HomeActivity : AppCompatActivity() {
 
         val bundle : Bundle? = intent.extras
         val email : String? = bundle?.getString("email")
-        setup(email ?: "")
+        val seleccion :Int? ? = bundle?.getInt("seleccionado")
+        setup(email ?: "", seleccion ?: 0)
     }
 
-    fun setup(email: String){
+    fun setup(email: String,seleccionado: Int){
         val handlerr = Handler()
         handlerr.postDelayed({
             db.collection("users").document(email).get().addOnSuccessListener {
@@ -54,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
         binding.jugar.setOnClickListener {
             val homeintent = Intent (this, JuegoActivity::class.java).apply {
                 putExtra("email",email)
+                putExtra("seleccionado",seleccionado)
             }
             startActivity(homeintent)
         }

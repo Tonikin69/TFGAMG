@@ -24,6 +24,8 @@ class JuegoActivity : AppCompatActivity() {
     var fin = false
     var contador=0
     var suma="0"
+    var seleccionnado=0
+    var tienda=""
     private lateinit var binding : ActivityJuegoBinding
     private lateinit var bindingdos : ActivityFinjuegoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +35,18 @@ class JuegoActivity : AppCompatActivity() {
         setContentView(binding.root)
         val bundle : Bundle? = intent.extras
         val email : String? = bundle?.getString("email")
-        setup(email ?: "")
+        val seleccion :Int? ? = bundle?.getInt("seleccionado")
+        seleccionnado=seleccion!!
+        db.collection("users").document(email!!).get().addOnSuccessListener {
+            tienda = ((it.get("tienda") as String?).toString())
+        }
+        setup(email ?: "",seleccion ?: 0)
+        if (seleccion ==2){
+            binding.zombie.setImageResource(R.drawable.soldado2)
+        }
     }
 
-    fun setup(email: String){
+    fun setup(email: String,seleccionado :Int){
         contador(email ?: "")
         tamanio()
         if (!fin){
@@ -46,7 +56,12 @@ class JuegoActivity : AppCompatActivity() {
                         binding.zombie.setImageResource(R.drawable.sangre)
                         val handler = Handler()
                         handler.postDelayed({
-                            binding.zombie.setImageResource(R.drawable.zombie)
+                            if (seleccionado ==2){
+                                binding.zombie.setImageResource(R.drawable.soldado2)
+                            }else{
+                                binding.zombie.setImageResource(R.drawable.zombie)
+                            }
+
                             moverse()
                         }, 100)
                 }
@@ -105,7 +120,7 @@ class JuegoActivity : AppCompatActivity() {
             }
             handlerr.postDelayed({
                 db.collection("users").document(email).set(
-                    hashMapOf("monedas" to contador.toString())
+                    hashMapOf("monedas" to contador.toString(),"tienda" to tienda)
                 )
                 db.collection("record").document(email).get().addOnSuccessListener {
                     var resultadostring=((it.get("personalrecord") as String?).toString())
@@ -144,9 +159,11 @@ class JuegoActivity : AppCompatActivity() {
 
         }
         regresarmenu.setOnClickListener {
+
             val handlerr = Handler()
             val homeintentdos = Intent (this, HomeActivity::class.java).apply {
                 putExtra("email",email)
+                putExtra("seleccionado",seleccionnado)
             }
             db.collection("users").document(email).get().addOnSuccessListener {
                 suma=((it.get("monedas") as String?).toString())
@@ -154,7 +171,7 @@ class JuegoActivity : AppCompatActivity() {
             }
             handlerr.postDelayed({
                 db.collection("users").document(email).set(
-                    hashMapOf("monedas" to contador.toString())
+                    hashMapOf("monedas" to contador.toString(),"tienda" to tienda)
                 )
                 db.collection("record").document(email).get().addOnSuccessListener {
                     var resultadostring=((it.get("personalrecord") as String?).toString())
