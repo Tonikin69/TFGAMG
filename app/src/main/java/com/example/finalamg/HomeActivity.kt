@@ -45,7 +45,11 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.cambiarnombre.setOnClickListener {
-            //futuratienda
+            val homeintent = Intent (this, TiendaActivity::class.java).apply {
+                putExtra("email",email)
+            }
+            startActivity(homeintent)
+            finish()
         }
         binding.jugar.setOnClickListener {
             val homeintent = Intent (this, JuegoActivity::class.java).apply {

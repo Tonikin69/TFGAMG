@@ -83,8 +83,10 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(textonombre,textocontrasena).addOnCompleteListener {
                 if (it.isSuccessful){
                         db.collection("users").document(textonombre).set(
-                            hashMapOf("monedas" to "0")
+                            hashMapOf("monedas" to "0","tienda" to "0")
+
                         )
+
                     db.collection("record").document(textonombre).set(
                         hashMapOf("personalrecord" to "0")
                     )
