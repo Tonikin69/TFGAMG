@@ -36,7 +36,7 @@
             android:id="@+id/txnombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre"
+            android:hint="Correo"
             android:digits="qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNM@."
             />
     </com.google.android.material.textfield.TextInputLayout>
