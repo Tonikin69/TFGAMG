@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/migris"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -19,11 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35" />
+
     <ImageView
+        android:layout_width="68dp"
+        android:layout_height="69dp"
         android:layout_gravity="center"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/zombie"/>
+        android:src="@drawable/explosion" />
 
     <Button
         android:layout_gravity="center"

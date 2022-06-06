@@ -45,8 +45,24 @@ class JuegoActivity : AppCompatActivity() {
             tienda = ((it.get("tienda") as String?).toString())
         }
         setup(email ?: "",seleccion ?: 0)
-        if (seleccion ==2){
-            binding.zombie.setImageResource(R.drawable.soldado2)
+        if (seleccion==0){
+            binding.zombie.setImageResource(R.drawable.rojo)
+        }else if (seleccion==1){
+            binding.zombie.setImageResource(R.drawable.naranja)
+        }else if (seleccion==2){
+            binding.zombie.setImageResource(R.drawable.morado)
+        }else if (seleccion==3){
+            binding.zombie.setImageResource(R.drawable.amarillo)
+        }else if (seleccion==4){
+            binding.zombie.setImageResource(R.drawable.verde)
+        }else if (seleccion==5){
+            binding.zombie.setImageResource(R.drawable.azul)
+        }else if (seleccion==6){
+            binding.zombie.setImageResource(R.drawable.rosa)
+        }else if (seleccion==7){
+            binding.zombie.setImageResource(R.drawable.negro)
+        }else if (seleccion==8){
+            binding.zombie.setImageResource(R.drawable.arcoiris)
         }
 
     }
@@ -59,14 +75,28 @@ class JuegoActivity : AppCompatActivity() {
                 binding.zombie.setOnClickListener {
                         contador++;
                         binding.contador.text = contador.toString()
-                        binding.zombie.setImageResource(R.drawable.sangre)
+                        binding.zombie.setImageResource(R.drawable.explosion)
                     mpp.start()
                         val handler = Handler()
                         handler.postDelayed({
-                            if (seleccionado ==2){
-                                binding.zombie.setImageResource(R.drawable.soldado2)
-                            }else{
-                                binding.zombie.setImageResource(R.drawable.zombie)
+                            if (seleccionado==0){
+                                binding.zombie.setImageResource(R.drawable.rojo)
+                            }else if (seleccionado==1){
+                                binding.zombie.setImageResource(R.drawable.naranja)
+                            }else if (seleccionado==2){
+                                binding.zombie.setImageResource(R.drawable.morado)
+                            }else if (seleccionado==3){
+                                binding.zombie.setImageResource(R.drawable.amarillo)
+                            }else if (seleccionado==4){
+                                binding.zombie.setImageResource(R.drawable.verde)
+                            }else if (seleccionado==5){
+                                binding.zombie.setImageResource(R.drawable.azul)
+                            }else if (seleccionado==6){
+                                binding.zombie.setImageResource(R.drawable.rosa)
+                            }else if (seleccionado==7){
+                                binding.zombie.setImageResource(R.drawable.negro)
+                            }else if (seleccionado==8){
+                                binding.zombie.setImageResource(R.drawable.arcoiris)
                             }
 
                             moverse()
@@ -115,7 +145,7 @@ class JuegoActivity : AppCompatActivity() {
         var eliminados = dialogo.findViewById<TextView>(R.id.eliminados)
         var regresarmenu = dialogo.findViewById<Button>(R.id.regresarmenu)
         var regresarjuego = dialogo.findViewById<Button>(R.id.regresarjuego)
-        eliminados.setText("Has matado : "+contador)
+        eliminados.setText("Has explotado : "+contador)
         var muertos = contador
         dialogo.show()
         regresarjuego.setOnClickListener {

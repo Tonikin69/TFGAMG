@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TiendaActivity"
-    android:background="@color/migris">
+    android:background="@drawable/fondoshop">
 
     <TextView
         android:id="@+id/monedastienda"
@@ -24,7 +24,7 @@
         android:id="@+id/imageView13"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/moneda"
+        android:src="@drawable/monedita"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.65"
@@ -33,15 +33,15 @@
         app:layout_constraintVertical_bias="0.1" />
     <ImageView
         android:id="@+id/globo1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/naranja"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintHorizontal_bias="0.25"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
 
     <TextView
         android:id="@+id/precio1"
@@ -58,15 +58,15 @@
     </TextView>
     <ImageView
         android:id="@+id/globo2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/morado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintHorizontal_bias="0.75"/>
+        app:layout_constraintHorizontal_bias="0.65"/>
     <TextView
         android:id="@+id/precio2"
         android:layout_width="wrap_content"
@@ -80,15 +80,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/amarillo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
-        app:layout_constraintHorizontal_bias="0.25"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
     <TextView
         android:id="@+id/precio3"
         android:layout_width="wrap_content"
@@ -102,15 +102,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/verde"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
-        app:layout_constraintHorizontal_bias="0.75"/>
+        app:layout_constraintHorizontal_bias="0.65"/>
     <TextView
         android:id="@+id/precio4"
         android:layout_width="wrap_content"
@@ -124,15 +124,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65"
-        app:layout_constraintHorizontal_bias="0.25"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
     <TextView
         android:id="@+id/precio5"
         android:layout_width="wrap_content"
@@ -146,15 +146,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/rosa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65"
-        app:layout_constraintHorizontal_bias="0.75"/>
+        app:layout_constraintHorizontal_bias="0.65"/>
     <TextView
         android:id="@+id/precio6"
         android:layout_width="wrap_content"
@@ -168,15 +168,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo7"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/negro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85"
-        app:layout_constraintHorizontal_bias="0.25"/>
+        app:layout_constraintHorizontal_bias="0.15"/>
     <TextView
         android:id="@+id/precio7"
         android:layout_width="wrap_content"
@@ -190,15 +190,15 @@
         app:layout_constraintVertical_bias="1"/>
     <ImageView
         android:id="@+id/globo8"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soldado2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/arcoiris"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85"
-        app:layout_constraintHorizontal_bias="0.75"/>
+        app:layout_constraintHorizontal_bias="0.65"/>
     <TextView
         android:id="@+id/precio8"
         android:layout_width="wrap_content"

@@ -110,16 +110,16 @@ class PodiumActivity : AppCompatActivity() {
 
 
 
-            binding.pos1.text=listafinalporfin[0]
-            binding.pos2.text=listafinalporfin[1]
-            binding.pos3.text=listafinalporfin[2]
-            binding.pos4.text=listafinalporfin[3]
-            binding.pos5.text=listafinalporfin[4]
-            binding.pos6.text=listafinalporfin[5]
-            binding.pos7.text=listafinalporfin[6]
-            binding.pos8.text=listafinalporfin[7]
-            binding.pos9.text=listafinalporfin[8]
-            binding.pos10.text=listafinalporfin[9]
+            binding.pos1.text=listafinalporfin[0].replace("@gmail.com","")
+            binding.pos2.text=listafinalporfin[1].replace("@gmail.com","")
+            binding.pos3.text=listafinalporfin[2].replace("@gmail.com","")
+            binding.pos4.text=listafinalporfin[3].replace("@gmail.com","")
+            binding.pos5.text=listafinalporfin[4].replace("@gmail.com","")
+            binding.pos6.text=listafinalporfin[5].replace("@gmail.com","")
+            binding.pos7.text=listafinalporfin[6].replace("@gmail.com","")
+            binding.pos8.text=listafinalporfin[7].replace("@gmail.com","")
+            binding.pos9.text=listafinalporfin[8].replace("@gmail.com","")
+            binding.pos10.text=listafinalporfin[9].replace("@gmail.com","")
 
 
 

@@ -30,6 +30,26 @@ class HomeActivity : AppCompatActivity() {
         var nombresingmail = email?.split("@")
         binding.nombreEt.text= nombresingmail?.get(0).toString()
 
+        if (seleccion==0){
+            binding.imageView.setImageResource(R.drawable.rojo)
+        }else if (seleccion==1){
+            binding.imageView.setImageResource(R.drawable.naranja)
+        }else if (seleccion==2){
+            binding.imageView.setImageResource(R.drawable.morado)
+        }else if (seleccion==3){
+            binding.imageView.setImageResource(R.drawable.amarillo)
+        }else if (seleccion==4){
+            binding.imageView.setImageResource(R.drawable.verde)
+        }else if (seleccion==5){
+            binding.imageView.setImageResource(R.drawable.azul)
+        }else if (seleccion==6){
+            binding.imageView.setImageResource(R.drawable.rosa)
+        }else if (seleccion==7){
+            binding.imageView.setImageResource(R.drawable.negro)
+        }else if (seleccion==8){
+            binding.imageView.setImageResource(R.drawable.arcoiris)
+        }
+
     }
 
     fun setup(email: String,seleccionado: Int){
