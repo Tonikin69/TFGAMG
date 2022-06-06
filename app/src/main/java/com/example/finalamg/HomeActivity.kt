@@ -27,6 +27,9 @@ class HomeActivity : AppCompatActivity() {
         val email : String? = bundle?.getString("email")
         val seleccion :Int? ? = bundle?.getInt("seleccionado")
         setup(email ?: "", seleccion ?: 0)
+        var nombresingmail = email?.split("@")
+        binding.nombreEt.text= nombresingmail?.get(0).toString()
+
     }
 
     fun setup(email: String,seleccionado: Int){
@@ -58,6 +61,7 @@ class HomeActivity : AppCompatActivity() {
                 putExtra("seleccionado",seleccionado)
             }
             startActivity(homeintent)
+            finish()
         }
         binding.podium.setOnClickListener {
             val homeintent = Intent (this, PodiumActivity::class.java)

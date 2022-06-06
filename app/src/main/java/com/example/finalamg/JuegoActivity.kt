@@ -3,6 +3,8 @@ package com.example.finalamg
 
 import android.app.Dialog
 import android.content.Intent
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -18,6 +20,8 @@ import java.util.*
 
 
 class JuegoActivity : AppCompatActivity() {
+    lateinit var mp :MediaPlayer
+    lateinit var mpp :MediaPlayer
     private val db = FirebaseFirestore.getInstance()
      var ancho=0
      var alto=0
@@ -44,9 +48,11 @@ class JuegoActivity : AppCompatActivity() {
         if (seleccion ==2){
             binding.zombie.setImageResource(R.drawable.soldado2)
         }
+
     }
 
     fun setup(email: String,seleccionado :Int){
+        mpp= MediaPlayer.create(this,R.raw.reventon)
         contador(email ?: "")
         tamanio()
         if (!fin){
@@ -54,6 +60,7 @@ class JuegoActivity : AppCompatActivity() {
                         contador++;
                         binding.contador.text = contador.toString()
                         binding.zombie.setImageResource(R.drawable.sangre)
+                    mpp.start()
                         val handler = Handler()
                         handler.postDelayed({
                             if (seleccionado ==2){
@@ -87,12 +94,14 @@ class JuegoActivity : AppCompatActivity() {
 
     }
     fun contador(email: String){
+        mp= MediaPlayer.create(this,R.raw.desinfle)
         object : CountDownTimer(10000, 1000) {
             override fun onTick(tiempo: Long) {
                 binding.tiempo.setText((tiempo / 1000).toString())
             }
 
             override fun onFinish() {
+                mp.start()
                 binding.tiempo.setText("0")
                 fin=true
                 finjuego(email ?: "")
@@ -154,6 +163,7 @@ class JuegoActivity : AppCompatActivity() {
                     println(puntoss+"``````````````````````")
 
                 }
+                finish()
                 startActivity(homeintent)
             }, 2000)
 
@@ -205,6 +215,7 @@ class JuegoActivity : AppCompatActivity() {
                     println(puntoss+"``````````````````````")
 
                 }
+                finish()
                 startActivity(homeintentdos)
             }, 2000)
         }
