@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.115">
+        app:layout_constraintVertical_bias="0.115"
+        android:textColor="@color/white">
 
     </TextView>
 
@@ -53,7 +54,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo1"
         app:layout_constraintTop_toTopOf="@+id/globo1"
-        app:layout_constraintVertical_bias="1">
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white">
 
     </TextView>
     <ImageView
@@ -77,7 +79,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo2"
         app:layout_constraintTop_toTopOf="@+id/globo2"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo3"
         android:layout_width="100dp"
@@ -99,7 +102,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo3"
         app:layout_constraintTop_toTopOf="@+id/globo3"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo4"
         android:layout_width="100dp"
@@ -121,7 +125,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo4"
         app:layout_constraintTop_toTopOf="@+id/globo4"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo5"
         android:layout_width="100dp"
@@ -143,7 +148,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo5"
         app:layout_constraintTop_toTopOf="@+id/globo5"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo6"
         android:layout_width="100dp"
@@ -165,7 +171,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo6"
         app:layout_constraintTop_toTopOf="@+id/globo6"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo7"
         android:layout_width="100dp"
@@ -187,7 +194,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo7"
         app:layout_constraintTop_toTopOf="@+id/globo7"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <ImageView
         android:id="@+id/globo8"
         android:layout_width="100dp"
@@ -209,7 +217,8 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/globo8"
         app:layout_constraintTop_toTopOf="@+id/globo8"
-        app:layout_constraintVertical_bias="1"/>
+        app:layout_constraintVertical_bias="1"
+        android:textColor="@color/white"/>
     <Button
         android:id="@+id/volver"
         android:layout_width="wrap_content"
