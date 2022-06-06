@@ -125,7 +125,7 @@ class JuegoActivity : AppCompatActivity() {
     }
     fun contador(email: String){
         mp= MediaPlayer.create(this,R.raw.desinfle)
-        object : CountDownTimer(20000, 1000) {
+        object : CountDownTimer(26000, 1000) {
             override fun onTick(tiempo: Long) {
                 binding.tiempo.setText((tiempo / 1000).toString())
             }
